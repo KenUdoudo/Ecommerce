@@ -6,6 +6,7 @@ import { HiHome,
     HiPlayCircle,
     HiTv, 
     HiPlus} from "react-icons/hi2"
+import HeaderItem from './HeaderItem'
 function Header() {
   const menu=[
     {
@@ -36,6 +37,9 @@ function Header() {
   return (
     <div>
       <img src={ logo } className='w-[80px] md:w-[115px] object-cover'/>
+      {menu.map((item)=>(
+        <HeaderItem name={item.name} Icon={item.icon}/>
+      ))}
     </div>
   )
 }
