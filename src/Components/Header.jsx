@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from './../assets/Disney-Plus.png'
 import { HiHome,
     HiMagnifyingGlass,
@@ -8,6 +8,7 @@ import { HiHome,
 import { HiPlus, HiDotsVertical } from 'react-icons/hi';
 import HeaderItem from './HeaderItem'
 function Header() {
+  const [toggle,setToggle]=useState(false);
   const menu=[
     {
       name: 'HOME',
@@ -47,13 +48,13 @@ function Header() {
       {menu.map((item,index)=>index<3&&(
         <HeaderItem name={''} Icon={item.icon}/>
       ))}
-      <div className='md:hidden'>
+      <div className='md:hidden' onClick={()=>setToggle(!toggle)}>
         <HeaderItem name={''} Icon={HiDotsVertical}/>
-        <div className='absolute mt-3 bg-slate-100 border-[1px] p-3'>
-        {menu.map((item,index)=>index>3&&(
+        {toggle? <div className='absolute mt-3 bg-slate-100 border-[1px] border-gray-400 p-3 px-5 py-4'>
+        {menu.map((item,index)=>index>2&&(
         <HeaderItem name={item.name} Icon={item.icon}/>
       ))}
-        </div>
+        </div>:null}
       </div>
       </div>
       </div>
