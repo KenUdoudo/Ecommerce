@@ -17,7 +17,7 @@ function Slider() {
         })
     }
   return (
-    <div>
+    <div className='flex overflow-x-auto'>
       {movieList.map((item,index)=>(
         <img src={IMAGE_BASE_URL+item.backdrop_path} className='min-w-full h-[310px] object-cover'/>
       ))}
